@@ -1,0 +1,143 @@
+@use "../../../styles.scss" as styles;
+
+.weather-display {
+  min-height: 400px;
+  width: fit-content;
+  min-width: 300px;
+  background-color: white;
+  border: solid 1px styles.$color-main;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: styles.$box-shadow;
+  z-index: 2;
+
+  .forecast {
+    width: fit-content;
+    margin: 10px auto;
+    font-size: 14px;
+    padding: 5px;
+    box-shadow: styles.$box-shadow;
+  }
+
+  .forecast:hover {
+    cursor: pointer;
+    box-shadow: styles.$box-shadow-hover;
+  }
+
+  .hourly {
+    margin-top: 20px;
+  }
+}
+
+.show {
+  display: block;
+  position: absolute;
+  top: -400px;
+}
+
+.show-up-right {
+  display: block;
+  position: absolute;
+  top: -450px;
+}
+
+.show-up-left {
+  display: block;
+  position: absolute;
+  top: -450px;
+  left: -300px;
+}
+
+.show-down-right {
+  display: block;
+  position: absolute;
+}
+
+.show-down-left {
+  display: block;
+  position: absolute;
+  left: -300px;
+  // top: -225px
+}
+
+.hide {
+  display: none;
+}
+
+.hourly-item {
+  display: flex;
+  flex-direction: row;
+  box-shadow: styles.$box-shadow;
+  margin: 5px;
+
+  .data {
+    min-width: 75px;
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .real {
+    color: gray;
+    font-size: 14px;
+  }
+}
+
+.sunny {
+  color: orange;
+}
+
+.cloudy {
+  color: grey;
+}
+
+.later {
+  padding: 5px;
+  margin: 10px auto;
+  width: fit-content;
+  box-shadow: styles.$box-shadow;
+  text-align: center;
+}
+
+.arrow {
+  text-align: center;
+}
+
+.bi-caret-up:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  .weather-display {
+    min-height: 300px;
+    width: fit-content;
+    min-width: 250px;
+
+    .forecast {
+      font-size: 12px;
+    }
+  }
+
+  .show-up-right {
+    display: block;
+    position: absolute;
+    top: -350px;
+  }
+
+  .show-up-left {
+    display: block;
+    position: absolute;
+    top: -350px;
+    left: -250px;
+  }
+
+  .show-down-right {
+    display: block;
+    position: absolute;
+  }
+
+  .show-down-left {
+    display: block;
+    position: absolute;
+    left: -250px;
+  }
+}

@@ -1,0 +1,16 @@
+<div id="map" (click)="onClick($event)">
+  <div class="info">Click anywhere on map to see weather forecast!</div>
+</div>
+<div>
+  <app-weather-display
+    id="popup"
+    [class]="popupClass"
+    [weatherData]="weatherData"
+    [laterData]="todaysData"
+    (onFiveDayForecast)="forwardFiveDayForecast()"
+  >
+    <ng-container>
+      <i class="bi bi-x-square btn" (click)="removePopup($event)"></i>
+    </ng-container>
+  </app-weather-display>
+</div>

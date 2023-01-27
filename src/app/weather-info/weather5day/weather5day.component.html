@@ -1,0 +1,53 @@
+<div class="forecast" @slideIn>
+  <ng-content></ng-content>
+  <div class="location" cdkDrag>{{ locationName }}</div>
+  <div
+    *ngFor="let day of weatherData"
+    class="item"
+    (click)="onDayClick($event)"
+    [id]="day[day.length - 1].day"
+  >
+    <div>{{ day[day.length - 1].day }}</div>
+    <div>
+      <span> {{ day[day.length - 1].max }}&#176; </span> /
+      <span> {{ day[day.length - 1].min }}&#176; </span>
+    </div>
+  </div>
+  <div class="hourly" *ngIf="selectedDay">
+    <div class="day">{{ selectedDay }}</div>
+    <div *ngFor="let hour of selectedDayArray; index as i" [id]="hour.dt_txt">
+      <div
+        *ngIf="!clickedHour.includes(i)"
+        (click)="onHourClick(i)"
+        class="hourly-item"
+      >
+        <app-display-weather-parameters-line
+          [dt_txt]="hour.hours"
+          [class]="hour.weatherClass || ''"
+          [clickable]="'clickable'"
+          [temp]="hour.temp"
+          [feels_like]="hour.feels_like"
+        >
+        </app-display-weather-parameters-line>
+        <div class="arrow">
+          <i class="bi bi-caret-down"></i>
+        </div>
+      </div>
+      <div *ngIf="clickedHour.includes(i)">
+        <app-display-weather-parameters
+          [class]="'borders'"
+          [name]="hour.dt_txt"
+          [weatherClass]="hour.weatherClass || ''"
+          [description]="hour.description"
+          [humidity]="hour.humidity"
+          [pressure]="hour.pressure"
+          [windSpeed]="hour.wind_speed"
+          [temp]="hour.temp"
+        ></app-display-weather-parameters>
+        <div class="arrow c" (click)="onHourClick(i)">
+          <i class="bi bi-caret-up"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

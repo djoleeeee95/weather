@@ -1,0 +1,41 @@
+@use "../../../styles.scss" as styles;
+
+.hourly-item {
+  display: flex;
+  flex-direction: row;
+  box-shadow: styles.$box-shadow;
+  margin: 5px;
+  min-width: 330px;
+
+  .data {
+    min-width: 75px;
+    text-align: center;
+    font-size: 18px;
+    padding: 2px;
+  }
+
+  .real {
+    color: gray;
+    font-size: 14px;
+  }
+}
+
+.clickable:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  .hourly-item {
+    min-width: 200px;
+
+    .data {
+      text-align: center;
+      font-size: 14px;
+      padding: 2px;
+    }
+
+    .real {
+      font-size: 12px;
+    }
+  }
+}

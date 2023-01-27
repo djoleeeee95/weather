@@ -1,0 +1,71 @@
+@use "../../../styles.scss" as styles;
+
+.borders {
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  padding: 5px;
+}
+
+.description {
+  font-size: 16px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.data {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  .temp {
+    font-size: 50px;
+  }
+}
+
+h3 {
+  margin-left: 15px;
+  color: styles.$color-main;
+}
+
+.info {
+  width: fit-content;
+  padding-bottom: 5px;
+  font-size: 16px;
+}
+
+.i {
+  font-size: 100px;
+}
+
+.sunny {
+  color: orange;
+}
+
+.cloudy {
+  color: grey;
+}
+
+@media (max-width: 1200px) {
+  .description {
+    font-size: 14px;
+    padding-bottom: 20px;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  .info {
+    font-size: 14px;
+  }
+
+  .data .temp {
+    font-size: 40px;
+  }
+
+  .i {
+    font-size: 70px;
+    margin: auto;
+  }
+}

@@ -1,0 +1,44 @@
+<div class="weather-display" [ngClass]="class">
+  <div>
+    <ngx-spinner
+      bdColor="rgb(255,255,255)"
+      size="medium"
+      color="#2b7a78"
+      type="ball-spin"
+      [fullScreen]="false"
+    ></ngx-spinner>
+  </div>
+  <div *ngIf="weatherData">
+    <div>
+      <ng-content></ng-content>
+    </div>
+    <app-display-weather-parameters
+      [name]="name"
+      [weatherClass]="weatherClass"
+      [description]="description"
+      [humidity]="humidity"
+      [pressure]="pressure"
+      [windSpeed]="wind_speed"
+      [temp]="temp"
+    ></app-display-weather-parameters>
+    <div class="forecast" (click)="showFiveDayForecast($event)">
+      Check 5 days forecast for this location
+    </div>
+    <div class="forecast" (click)="handleShowLater($event, true)">
+      Weather later today <i class="bi bi-caret-down" *ngIf="!showLater"></i>
+    </div>
+    <div *ngIf="showLater" class="hourly" @slideDownUp>
+      <app-display-weather-parameters-line
+        *ngFor="let hour of laterData"
+        [dt_txt]="hour.dt_txt"
+        [class]="hour.weatherClass"
+        [temp]="hour.temp"
+        [feels_like]="hour.feels_like"
+      >
+      </app-display-weather-parameters-line>
+      <div class="arrow" (click)="handleShowLater($event, false)">
+        <i class="bi bi-caret-up" style="font-size: 1.5rem"></i>
+      </div>
+    </div>
+  </div>
+</div>

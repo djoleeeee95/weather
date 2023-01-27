@@ -1,0 +1,7 @@
+<app-weather5day [forecast]="forecast" *ngIf="show">
+    <ng-container>
+        <i class="bi bi-x-square btn" (click)="removeForecast()"></i>
+    </ng-container>
+</app-weather5day>
+<app-map (onForwardFiveDayForecast)="getFiveDayForecast($event)" (onCloseFiveDayForecast)="removeForecast()"></app-map>
+<!-- <app-weather-display [showInfo]="showWeatherInfo" ></app-weather-display> -->

@@ -1,0 +1,17 @@
+<div [ngClass]="class">
+  <h3>{{ name }}</h3>
+  <div class="description">
+    <i class="i" [ngClass]="weatherClass"></i>
+    <div>
+      {{ description }}
+    </div>
+  </div>
+  <div class="data">
+    <div>
+      <div class="info"><i class="bi bi-droplet"></i> {{ humidity }} %</div>
+      <div class="info"><i class="bi bi-bar-chart"></i> {{ pressure }} mB</div>
+      <div class="info"><i class="bi bi-wind"></i> {{ windSpeed }} m/s</div>
+    </div>
+    <div class="temp">{{ temp }} &#8451;</div>
+  </div>
+</div>

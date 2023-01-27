@@ -1,0 +1,113 @@
+@use "../../../styles.scss" as styles;
+
+.forecast {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  z-index: 1000;
+  width: fit-content;
+  min-width: 350px;
+  height: fit-content;
+  border-radius: 10px;
+  background-color: white;
+  padding: 5px;
+  border: solid 1px styles.$color-main;
+  max-height: 95vh;
+  margin-bottom: 20px;
+  overflow-y: auto;
+
+  .location {
+    font-family: styles.$font-family;
+    font-size: 30px;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 10px;
+    margin: 5px;
+    box-shadow: styles.$box-shadow;
+    font-size: 20px;
+    font-family: styles.$font-family;
+  }
+
+  .item:hover {
+    cursor: pointer;
+    box-shadow: styles.$box-shadow-hover;
+  }
+
+  .hourly {
+    margin-top: 30px;
+
+    .day {
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .hourly-item {
+      display: flex;
+    }
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.forecast::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.forecast {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.arrow {
+  text-align: right;
+  box-shadow: styles.$box-shadow;
+  width: fit-content;
+  height: fit-content;
+  text-align: center;
+  font-size: 18px;
+  margin: 5px;
+  padding: 2px;
+}
+
+.arrow:hover {
+  cursor: pointer;
+}
+
+.c {
+  margin: auto;
+  margin-bottom: 5px;
+}
+
+.forecast::after {
+  transform: translateX(-100%);
+}
+
+@media (max-width: 1200px) {
+  .forecast {
+    min-width: 300px;
+
+    .location {
+      font-size: 20px;
+    }
+
+    .item {
+      font-size: 16px;
+    }
+
+    .hourly {
+      .day {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .arrow {
+    font-size: 14px;
+  }
+}
